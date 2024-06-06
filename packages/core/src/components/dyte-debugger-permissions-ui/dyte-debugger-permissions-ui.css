@@ -1,0 +1,80 @@
+@import '../../styles/reset.css';
+@import '../../styles/html-select.css';
+
+:host {
+  @apply flex flex-col items-start justify-start;
+  @apply w-full;
+}
+
+h3 {
+  @apply text-text-md my-1;
+}
+
+.info {
+  @apply text-text-md my-1 flex flex-row items-center justify-center;
+  dyte-icon {
+    @apply mr-2;
+  }
+}
+
+.text {
+  @apply text-text-md text-text-700 my-1 !font-thin leading-normal;
+}
+
+.title {
+  @apply text-text-lg text-text-1000 flex w-fit flex-row items-center justify-center font-bold;
+  dyte-icon {
+    @apply mr-2;
+  }
+}
+
+.device-indicator {
+  @apply my-2 flex flex-col;
+}
+
+.sub-title {
+  @apply text-text-md text-text-900 my-2 font-semibold;
+  letter-spacing: 0.5px;
+}
+
+.recommendation {
+  @apply text-text-sm text-text-700 mb-1 flex flex-row items-start justify-start leading-normal;
+  div {
+    @apply mr-2;
+  }
+}
+
+.device {
+  @apply text-text-md mb-2 flex flex-row;
+  .label {
+    @apply text-text-600 w-32;
+  }
+  .seperator {
+    @apply text-text-600 mr-2;
+  }
+}
+
+.ACCEPTED {
+  @apply text-success;
+}
+
+.NOT_REQUESTED {
+  @apply text-text-900;
+  dyte-icon {
+    @apply text-warning;
+  }
+}
+
+.DENIED,
+.SYSTEM_DENIED,
+.COULD_NOT_START {
+  @apply text-danger;
+}
+
+video {
+  @apply mt-2 h-36 w-auto rounded-md;
+}
+
+dyte-button {
+  @apply mt-2;
+}

@@ -1,0 +1,50 @@
+@import '../../styles/reset.css';
+
+@import '../../styles/html-select.css';
+
+:host {
+  @apply flex w-full flex-col;
+}
+
+select {
+}
+
+audio {
+  @apply invisible;
+}
+
+label {
+  @apply text-text-md select-none;
+}
+
+.group {
+  @apply my-2;
+
+  & > * {
+    @apply mb-2 last:mb-0;
+  }
+
+  select {
+    @apply flex-1;
+  }
+}
+
+.row {
+  @apply flex items-center justify-between gap-3;
+}
+
+.dyte-select {
+  @apply w-full max-w-full text-ellipsis;
+}
+
+dyte-audio-visualizer {
+  @apply flex-shrink-0;
+}
+
+dyte-button {
+  @apply bg-background-700 rounded-sm shadow-none;
+
+  dyte-icon {
+    @apply mr-2;
+  }
+}

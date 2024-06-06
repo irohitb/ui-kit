@@ -1,0 +1,18 @@
+.chat-input {
+  @apply relative;
+  @apply z-10 box-border flex flex-col rounded-t-md;
+
+  textarea {
+    @apply bg-background-800;
+    @apply text-text-1000 placeholder:text-text-1000 box-border p-3;
+    @apply font-sans outline-none;
+    @apply resize-none overflow-y-auto border-none;
+    @apply text-text-md min-h-[60px];
+  }
+}
+
+@container chatcontainer (height < 360px) {
+  textarea {
+    @apply !h-[30px] !min-h-[30px];
+  }
+}

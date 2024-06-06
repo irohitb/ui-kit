@@ -1,0 +1,176 @@
+@import '../../styles/reset.css';
+
+:host {
+  @apply relative flex flex-col overflow-hidden;
+  @apply h-full w-full;
+  @apply text-text-1000;
+}
+
+h3 {
+  @apply text-text-lg m-0 p-0 font-semibold;
+}
+
+.status {
+  @apply text-text-sm ml-2 flex flex-row items-center justify-center;
+  dyte-icon {
+    @apply mr-2;
+  }
+}
+
+.scroll {
+  @apply overflow-auto rounded-none;
+}
+
+.warning,
+.NOT_REQUESTED {
+  @apply !text-warning opacity-80;
+}
+
+.success,
+.ACCEPTED {
+  @apply !text-success opacity-80;
+}
+
+.COULD_NOT_START,
+.error,
+.failed,
+.DENIED,
+.SYSTEM_DENIED {
+  @apply !text-danger opacity-80;
+}
+
+.row {
+  @apply flex flex-row items-center justify-start;
+}
+
+.section {
+  @apply flex flex-col items-start justify-start;
+}
+
+h3 {
+  @apply text-text-md m-0 font-semibold;
+}
+
+.stage-indicator {
+  @apply text-text-sm text-text-600 mb-1 flex flex-row items-center;
+}
+
+.status-text {
+  @apply text-text-md mt-3 !font-thin;
+  dyte-icon {
+    @apply mr-2;
+  }
+}
+
+.tooltip-text {
+  @apply text-text-sm flex flex-col;
+  span {
+    @apply !text-text-900 ml-1;
+  }
+  div {
+    @apply mt-1;
+  }
+  div:nth-child(1) {
+    @apply m-0;
+  }
+}
+.row {
+  @apply flex flex-row items-center justify-center;
+  dyte-switch {
+    @apply ml-8;
+  }
+  dyte-button {
+    @apply my-1 ml-2;
+  }
+  .label {
+    @apply w-40;
+  }
+  .text {
+    @apply mt-1 ml-2 mb-0;
+  }
+}
+
+.m3 {
+  @apply mt-3;
+}
+
+.m1 {
+  @apply mt-1;
+}
+
+.col {
+  @apply flex w-full flex-col items-start justify-start;
+}
+
+.label {
+  @apply text-text-md text-text-700 mt-1 flex flex-row justify-between !font-thin;
+}
+
+.text {
+  @apply text-text-md text-text-700 mb-2 !font-thin opacity-70;
+}
+
+.title {
+  @apply text-text-md text-text-900 mb-2 flex flex-row items-center font-semibold;
+}
+
+.sub-title {
+  @apply text-text-md text-text-900 mt-4 mb-2 flex flex-row items-center font-semibold;
+}
+
+.error-text {
+  @apply text-text-md text-danger mt-1 flex flex-row !font-thin;
+  dyte-icon {
+    @apply mr-2;
+  }
+}
+
+.volume-indicator {
+  @apply bg-background-1000 ml-4 h-3 w-56 overflow-hidden rounded-lg;
+}
+
+.volume-level {
+  @apply bg-brand-400 h-3 w-2;
+  transition: width 0.5s;
+}
+
+.stage-manager {
+  @apply text-brand-600 text-text-md sticky bottom-0 mt-4 flex flex-row-reverse items-center justify-between;
+}
+
+.stage-button {
+  @apply bg-background-700 flex cursor-pointer flex-row items-center rounded-sm py-1 px-2;
+  dyte-icon {
+    @apply p-0;
+  }
+}
+
+.disabled {
+  @apply !text-text-600 cursor-not-allowed;
+}
+
+#header {
+  @apply mt-2 flex items-center justify-evenly;
+  border-bottom: theme('borderWidth.sm') solid theme('colors.background.600');
+}
+
+#header dyte-button {
+  border-bottom: theme('borderWidth.md') solid transparent;
+  @apply rounded-none hover:bg-transparent;
+}
+
+#header dyte-button.active {
+  border-color: theme('colors.brand.400');
+}
+
+.tab-body {
+  @apply flex h-full flex-col justify-between overflow-y-auto p-4;
+}
+
+.speaker-test {
+  @apply mt-4 flex flex-row;
+}
+
+.speaker-test dyte-button {
+  @apply mr-2;
+}

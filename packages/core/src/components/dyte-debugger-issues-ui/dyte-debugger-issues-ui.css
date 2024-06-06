@@ -1,0 +1,57 @@
+@import '../../styles/reset.css';
+@import '../../styles/html-select.css';
+
+:host {
+  @apply flex w-full flex-col items-start justify-start;
+}
+
+.section {
+  @apply my-4 flex flex-col items-start justify-start;
+}
+
+.title {
+  @apply text-text-lg text-text-1000 flex w-fit flex-row items-center justify-center font-bold;
+  dyte-icon {
+    @apply mr-2;
+  }
+}
+
+.sub-title {
+  @apply text-text-md text-text-900 my-2 font-semibold;
+  letter-spacing: 0.5px;
+}
+
+.text {
+  @apply text-text-md text-text-700 my-1 !font-thin;
+}
+
+.recommendation {
+  @apply text-text-sm text-text-700 my-1 flex flex-row items-start justify-start;
+  div {
+    @apply mr-2;
+  }
+}
+
+.device {
+  @apply text-text-sm bg-background-600 mt-4 rounded-sm p-2;
+}
+
+select {
+  @apply my-2 !border-none !outline-none;
+}
+
+.dyte-select {
+  @apply text-text-md w-full max-w-full;
+}
+
+.disabled {
+  @apply text-text-600;
+}
+
+.report-link {
+  @apply text-text-sm !text-brand-500 mb-2 mt-6 cursor-pointer underline;
+}
+
+.report-issue {
+  @apply mt-2;
+}

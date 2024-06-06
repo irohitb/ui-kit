@@ -1,0 +1,4 @@
+{
+  "include": ["packages/**/src"],
+  "exclude": ["node_modules"]
+}

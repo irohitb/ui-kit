@@ -1,0 +1,69 @@
+@import '../../styles/reset.css';
+@import '../../styles/scrollbar.css';
+
+:host {
+  @apply bg-background-800 box-border block w-[512px] p-6;
+  @apply select-none rounded-md leading-tight;
+}
+
+.deny-access {
+  @apply bg-background-700;
+}
+
+h3,
+p {
+  @apply m-0 p-0;
+}
+
+h3 {
+  @apply text-heading-sm mb-4 leading-normal;
+}
+
+p {
+  @apply text-text-md my-4;
+}
+
+p.empty-message {
+  @apply text-text-lg text-center;
+}
+
+label > input {
+  @apply mr-2;
+}
+
+input {
+  @apply accent-brand bg-transparent;
+}
+
+#allow-requests-label {
+  @apply text-text-sm flex items-center;
+}
+
+#actions {
+  @apply mt-4 flex items-center;
+}
+
+dyte-button {
+  @apply text-button-sm flex-1 rounded-sm;
+}
+
+#participants-list {
+  @apply bg-background-1000 my-4 flex flex-col px-3;
+  @apply rounded-md;
+  @apply max-h-56 overflow-y-auto;
+}
+
+.participant {
+  @apply box-border flex h-14 items-center px-1 py-3;
+  border-bottom: theme('borderWidth.sm') solid theme('colors.background.700');
+  @apply last:border-b-none;
+  @apply text-text-md cursor-pointer;
+
+  input {
+    @apply mr-3;
+  }
+}
+
+dyte-avatar {
+  @apply mr-2 h-8 w-8;
+}

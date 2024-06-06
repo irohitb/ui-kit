@@ -1,0 +1,72 @@
+name: Update web-core version
+on:
+  repository_dispatch:
+    types: [web-core-release]
+jobs:
+  update:
+    name: web-core update
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+          token: ${{ secrets.SEMANTIC_RELEASE_PAT }}
+          ref: staging
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      - name: Set NPM_TOKEN
+        run: echo "NPM_TOKEN=${{ secrets.NPM_TOKEN }}" >> $GITHUB_ENV
+
+      - name: Install dependencies
+        run: |
+          npm install
+          npm install --workspaces
+          if [ -z $TAG ]; then
+            echo "Tag was not found, using @latest tag"
+            npm i -w packages/core @dytesdk/web-core@latest -D
+          elif [[ "$TAG" =~ .*"staging".* ]]; then
+            echo "staging tag found, using @staging tag"
+            npm i -w packages/core @dytesdk/web-core@staging -D
+          else
+            echo "tag found without the word staging in it, using @latest tag"
+            npm i -w packages/core @dytesdk/web-core@latest -D
+          fi
+        env:
+          TAG: ${{ github.event.client_payload.tagName }}
+
+      - name: Check if build is passing
+        run: |
+          npm run build
+
+      - name: Setup git config
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Create PR
+        run: |
+          BRANCH_NAME="ci/update-web-core-$TAG"
+          git checkout -b $BRANCH_NAME
+          git add .
+          git diff --quiet && git diff --staged --quiet || git commit -m "fix: @dytesdk/web-core auto-updated"
+
+          git push origin $BRANCH_NAME
+
+          gh pr list \
+          --label web-core-release \
+          --state open | \
+          awk '{print $1}' | \
+          xargs -r -L1 gh pr close -d
+
+          gh pr create \
+          --base staging \
+          --label web-core-release \
+          --title "fix(web-core): update web-core version to $TAG" \
+          --body "[CAPPS-533]"
+        env:
+          TAG: ${{ github.event.client_payload.tagName }}
+          GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_PAT }}
