@@ -9,9 +9,9 @@ Here is a short description for all the packages:
 | Path                                     | Description                                                                                       |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | [`packages/core`](./packages/core)       | The main source code for all Stencil components. You will write code primarily in this directory. |
-| [`packages/react`](./packages/react)     | The React UI Kit wrapper package                                                                  |
-| [`packages/angular`](./packages/angular) | The Angular UI Kit wrapper package                                                                |
-| [`packages/vue`](./packages/react)       | The Vue UI Kit wrapper package                                                                    |
+| [`packages/react`](./packages/react-library)     | The React UI Kit wrapper package                                                                  |
+| [`packages/angular`](./packages/angular-library) | The Angular UI Kit wrapper package                                                                |
+| [`packages/vue`](./packages/vue-library)       | The Vue UI Kit wrapper package                                                                    |
 
 The most important parts of this repository are the [`…/components`](./packages/core/components)  directory, which contains the core UI components, and the …/utils directory, which provides a collection of utility functions and classes that support the UI components.
 
